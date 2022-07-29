@@ -1,0 +1,6 @@
+cat, 2
+hat, 2
+basket, 4
+hat, 2
+hat, 4
+pen, 20

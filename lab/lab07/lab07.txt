@@ -1,0 +1,113 @@
+CREATE TABLE cars (car_id int NOT NULL AUTO_INCREMENT, make VARCHAR(20), model VARCHAR(20), price DECIMAL(10,2), Year_of_Manufacture INT, PRIMARY KEY(car_id));
+
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Holden','Astra',14000.00,2005 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('BMW','X3',35000.00,2004 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Ford','Falcon',39000.00,2011 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Toyota','Corolla',20000.00,2012 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Holden','Commodore',13500.00,2005 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Holden', 'Astra', '8000.00', 2001);
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Holden','Commodore',28000.00,2009);
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Ford','Falcon', '14000.00' ,2007 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Ford',  'Falcon',  7000.00,  2003 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Ford','Laser',10000.00,2010); 
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Mazda',  'RX-7', 26000.00,  2000 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Toyota',  'Corolla',  12000.00,  2001 );
+INSERT INTO cars (make, model, price, Year_of_Manufacture ) VALUES ('Mazda',  '3',  14500.00,  2009 );
+
+SELECT * FROM cars;
+
++--------+--------+-----------+----------+---------------------+
+| car_id | make   | model     | price    | Year_of_Manufacture |
++--------+--------+-----------+----------+---------------------+
+|      1 | Holden | Astra     | 14000.00 |                2005 |
+|      2 | BMW    | X3        | 35000.00 |                2004 |
+|      3 | Ford   | Falcon    | 39000.00 |                2011 |
+|      4 | Toyota | Corolla   | 20000.00 |                2012 |
+|      5 | Holden | Commodore | 13500.00 |                2005 |
+|      6 | Holden | Astra     |  8000.00 |                2001 |
+|      7 | Holden | Commodore | 28000.00 |                2009 |
+|      8 | Ford   | Falcon    | 14000.00 |                2007 |
+|      9 | Ford   | Falcon    |  7000.00 |                2003 |
+|     10 | Ford   | Laser     | 10000.00 |                2010 |
+|     11 | Mazda  | RX-7      | 26000.00 |                2000 |
+|     12 | Mazda  | 3         | 14500.00 |                2009 |
+|     13 | Toyota | Corolla   | 12000.00 |                2001 |
++--------+--------+-----------+----------+---------------------+
+13 rows in set (0.00 sec)
+
+
+SELECT make, model, price 
+FROM cars
+ORDER BY make, model;
+
++--------+-----------+----------+
+| make   | model     | price    |
++--------+-----------+----------+
+| BMW    | X3        | 35000.00 |
+| Ford   | Falcon    | 39000.00 |
+| Ford   | Falcon    |  7000.00 |
+| Ford   | Falcon    | 14000.00 |
+| Ford   | Laser     | 10000.00 |
+| Holden | Astra     | 14000.00 |
+| Holden | Astra     |  8000.00 |
+| Holden | Commodore | 28000.00 |
+| Holden | Commodore | 13500.00 |
+| Mazda  | 3         | 14500.00 |
+| Mazda  | RX-7      | 26000.00 |
+| Toyota | Corolla   | 20000.00 |
+| Toyota | Corolla   | 12000.00 |
++--------+-----------+----------+
+13 rows in set (0.00 sec)
+
+
+SELECT make, model 
+FROM cars
+WHERE price >= 20000.00;
+
++--------+-----------+
+| make   | model     |
++--------+-----------+
+| BMW    | X3        |
+| Ford   | Falcon    |
+| Toyota | Corolla   |
+| Holden | Commodore |
+| Mazda  | RX-7      |
++--------+-----------+
+5 rows in set (0.00 sec)
+
+
+SELECT make, model 
+FROM cars
+WHERE price < 15000.00;
+
++--------+-----------+
+| make   | model     |
++--------+-----------+
+| Holden | Astra     |
+| Holden | Commodore |
+| Holden | Astra     |
+| Ford   | Falcon    |
+| Ford   | Falcon    |
+| Ford   | Laser     |
+| Mazda  | 3         |
+| Toyota | Corolla   |
++--------+-----------+
+8 rows in set (0.00 sec)
+
+
+SELECT make, AVG(price)
+FROM cars
+GROUP BY make;
+
++--------+--------------+
+| make   | AVG(price)   |
++--------+--------------+
+| BMW    | 35000.000000 |
+| Ford   | 17500.000000 |
+| Holden | 15875.000000 |
+| Mazda  | 20250.000000 |
+| Toyota | 16000.000000 |
++--------+--------------+
+5 rows in set (0.01 sec)
+
+
